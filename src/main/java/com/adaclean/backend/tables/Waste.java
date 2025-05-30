@@ -1,4 +1,4 @@
-package com.adaclean.backend;
+package com.adaclean.backend.tables;
 import jakarta.persistence.*;
 
 @Entity

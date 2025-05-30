@@ -1,5 +1,7 @@
-package com.adaclean.backend;
+package com.adaclean.backend.controller;
 
+import com.adaclean.backend.tables.Waste;
+import com.adaclean.backend.repository.WasteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
