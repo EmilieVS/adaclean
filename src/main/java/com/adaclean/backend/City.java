@@ -9,12 +9,11 @@ public class City {
     private Integer id;
     private String name;
 
+    public City () {
 
-    public City() {
     }
 
-    public City(Integer id, String name){
-        this.id =id;
+    public City(String name){
         this.name = name;
 
     }
@@ -35,4 +34,7 @@ public class City {
         this.name = name;
     }
 
+
 }
+
+
