@@ -5,10 +5,13 @@ import jakarta.persistence.*;
 @Table(name="waste")
 public class Waste {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String waste_type;
+
+    public Waste() {
+    }
 
     public Waste(Integer id, String name, String waste_type){
         this.id =id;

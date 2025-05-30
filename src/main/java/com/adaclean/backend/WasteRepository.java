@@ -1,9 +1,6 @@
 package com.adaclean.backend;
-import org.springframework.data.repository.CrudRepository;
-import com.adaclean.backend.Waste;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WasteRepository extends CrudRepository<Waste, Integer> {
-
-
+public interface WasteRepository extends JpaRepository<Waste, Integer> {
 }
