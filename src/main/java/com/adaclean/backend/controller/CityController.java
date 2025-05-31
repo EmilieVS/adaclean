@@ -5,15 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/city")
+@RequestMapping("/api/city")
+@CrossOrigin(origins = "*")
 public class CityController {
     @Autowired
 
     private CityRepository CityRepository;
     @GetMapping(path="/all")
     public @ResponseBody Iterable<City> getName() {
-        // This returns a JSON or XML with the waste_type
+        // This returns a JSON or XML with the cities
         return CityRepository.findAll();
     }
 
+    @PostMapping
+    public City createCity(@RequestBody City city) {
+        return CityRepository.save(city);
+    }
 }
