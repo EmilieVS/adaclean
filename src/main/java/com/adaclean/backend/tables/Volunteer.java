@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 import java.text.DateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name="volunteer")
@@ -15,9 +15,7 @@ public class Volunteer {
     private String last_name;
     private String city;
     private String status;
-    @Column(unique=true)
     private String email ;
-    @Column(unique=true)
     private String password;
     private LocalDate created_at;
     private LocalDate updated_at;

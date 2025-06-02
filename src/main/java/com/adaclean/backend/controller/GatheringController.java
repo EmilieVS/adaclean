@@ -1,7 +1,9 @@
 package com.adaclean.backend.controller;
 import com.adaclean.backend.tables.Gathering;
 import com.adaclean.backend.repository.GatheringRepository;
+import com.adaclean.backend.tables.Volunteer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,8 +19,23 @@ public class GatheringController {
         return GatheringRepository.findAll();
     }
 
+
     @PostMapping
     public Gathering createGathering(@RequestBody Gathering gathering) {
         return GatheringRepository.save(gathering);
     }
+
+    @PutMapping(path="/{id}")
+    public Gathering updateGathering(@RequestBody Gathering gathering) {
+        return GatheringRepository.save(gathering);
+    }
+
+    @DeleteMapping(path="/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable("id") Integer id ) {
+        GatheringRepository.deleteById(id);
+    }
+
+
+
 }

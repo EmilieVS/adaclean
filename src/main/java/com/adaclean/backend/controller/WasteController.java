@@ -14,6 +14,6 @@ public class WasteController {
 
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Waste> getWaste_type() {
-        return wasteRepository.findAll(); // Note le 'w' minuscule ici
+        return wasteRepository.findAll();
     }
 }
