@@ -3,6 +3,7 @@ import com.adaclean.backend.tables.Volunteer;
 import com.adaclean.backend.repository.VolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,10 +24,17 @@ public class VolunteerController {
 
         return VolunteerRepository.save(volunteer);
     }
-    @PatchMapping(path="/{id}")
-    public Volunteer updateVolunteer(@RequestBody Volunteer volunteer) {
-        return VolunteerRepository.save(volunteer);
+    @PutMapping(path="/{id}")
+    public ResponseEntity<?> updateVolunteer(@PathVariable("id") Integer id,
+                                             @Valid @RequestBody UpdateVolunteer request,
+                                              Volunteer currentVolunteer) {
+
+    volunteerService.updateVolunteer(id,request,currentVolunteer);
+        return ResponseEntity.ok("Utilisateur mis à jour avec succès");
     }
+
+
+
 
     @DeleteMapping(path="/{id}")
     @ResponseStatus(HttpStatus.OK)
