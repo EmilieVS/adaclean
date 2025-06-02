@@ -13,7 +13,7 @@ public class Volunteer {
     private Integer id;
     private String first_name;
     private String last_name;
-    private String city_name;
+    private String city;
     private String status;
     @Column(unique=true)
     private String email ;
@@ -25,11 +25,11 @@ public class Volunteer {
     public Volunteer() {
     }
 
-    public Volunteer(Integer id, String first_name, String last_name, String city_name, String status, String email, String password, LocalDate  created_at, LocalDate  updated_at){
+    public Volunteer(Integer id, String first_name, String last_name, String city, String status, String email, String password, LocalDate  created_at, LocalDate  updated_at){
         this.id =id;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.city_name = city_name;
+        this.city = city;
         this.status = status;
         this.email = email;
         this.password = password;
@@ -61,8 +61,8 @@ public class Volunteer {
     }
 
     public void setFirst_name(String first_name) {
-    this.first_name = first_name;
-}
+        this.first_name = first_name;
+    }
 
 
     public String getLast_name() {
@@ -73,12 +73,12 @@ public class Volunteer {
         this.last_name = last_name;
     }
 
-    public String getCity_name() {
-        return city_name;
+    public String getCity() {
+        return city;
     }
 
-    public void setCity_name(String city_name) {
-        this.city_name = city_name;
+    public void setCity(String city) {
+        this.city = city;
     }
 
 
