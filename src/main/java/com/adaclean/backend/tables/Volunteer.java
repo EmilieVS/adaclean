@@ -2,6 +2,7 @@ package com.adaclean.backend.tables;
 import jakarta.persistence.*;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,13 +19,13 @@ public class Volunteer {
     private String email ;
     @Column(unique=true)
     private String password;
-    private LocalDateTime  created_at;
-    private LocalDateTime updated_at;
+    private LocalDate created_at;
+    private LocalDate updated_at;
 
     public Volunteer() {
     }
 
-    public Volunteer(Integer id, String first_name, String last_name, String city_name, String status, String email, String password, LocalDateTime  created_at, LocalDateTime  updated_at){
+    public Volunteer(Integer id, String first_name, String last_name, String city_name, String status, String email, String password, LocalDate  created_at, LocalDate  updated_at){
         this.id =id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -32,8 +33,19 @@ public class Volunteer {
         this.status = status;
         this.email = email;
         this.password = password;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.created_at = LocalDate.now();
+        this.updated_at = LocalDate.now();
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        created_at = LocalDate.now();
+        updated_at = LocalDate.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updated_at = LocalDate.now();
     }
 
     public Integer getId() {
@@ -97,19 +109,19 @@ public class Volunteer {
     }
 
 
-    public LocalDateTime getCreated_at() {
+    public LocalDate getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
+    public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
 
-    public LocalDateTime getUpdated_at() {
+    public LocalDate getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(LocalDateTime updated_at) {
+    public void setUpdated_at(LocalDate updated_at) {
         this.updated_at = updated_at;
     }
 
