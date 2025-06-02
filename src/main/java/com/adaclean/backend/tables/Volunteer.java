@@ -15,6 +15,7 @@ public class Volunteer {
     private String last_name;
     private String city;
     private String status;
+    @Column(unique = true)
     private String email ;
     private String password;
     private LocalDate created_at;
