@@ -1,7 +1,7 @@
 package com.adaclean.backend.tables;
 import jakarta.persistence.*;
 
-import java.text.DateFormat;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="gathering")
@@ -11,26 +11,26 @@ public class Gathering {
     private Integer id;
     private String name;
     private Integer volunteer_id;
-    private String waste_name;
+    private String waste_type;
     private Integer quantity;
     private String city_name;
-    private DateFormat create_at;
-    private DateFormat update_at;
+    private LocalDateTime created_at;
+    private LocalDateTime updated_at;
 
 
 
     public Gathering() {
     }
 
-    public Gathering(Integer id, String name, Integer volunteer_id, String waste_name, Integer quantity, String city_name, DateFormat create_at, DateFormat update_at){
+    public Gathering(Integer id, String name, Integer volunteer_id, String waste_type, Integer quantity, String city_name, LocalDateTime created_at, LocalDateTime updated_at){
         this.id =id;
         this.name = name;
         this.volunteer_id = volunteer_id;
-        this.waste_name = waste_name;
+        this.waste_type = waste_type;
         this.quantity = quantity;
         this.city_name = city_name;
-        this.create_at = create_at;
-        this.update_at = update_at;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
     public Integer getId() {
@@ -47,6 +47,54 @@ public class Gathering {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getVolunteer_id() {
+        return volunteer_id;
+    }
+
+    public void setVolunteer_id(Integer volunteer_id) {
+        this.volunteer_id = volunteer_id;
+    }
+
+    public String getWaste_type() {
+        return waste_type;
+    }
+
+    public void setWaste_type(String waste_type) {
+        this.waste_type = waste_type;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getCity_name() {
+        return city_name;
+    }
+
+    public void setCity_name(String city_name) {
+        this.city_name = city_name;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void getCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+
+    public void getUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 
 }
