@@ -21,4 +21,10 @@ public class WasteController {
     public Waste createWaste(@RequestBody Waste waste) {
         return WasteRepository.save(waste);
     }
+
+    @DeleteMapping(path="/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable("id") Integer id ) {
+        WasteRepository.deleteById(id);
+    }
 }
