@@ -19,14 +19,8 @@ public class GatheringController {
         return GatheringRepository.findAll();
     }
 
-
     @PostMapping
     public Gathering createGathering(@RequestBody Gathering gathering) {
-        return GatheringRepository.save(gathering);
-    }
-
-    @PutMapping(path="/{id}")
-    public Gathering updateGathering(@RequestBody Gathering gathering) {
         return GatheringRepository.save(gathering);
     }
 

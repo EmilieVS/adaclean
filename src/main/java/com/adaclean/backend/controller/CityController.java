@@ -14,7 +14,6 @@ public class CityController {
     private CityRepository CityRepository;
     @GetMapping(path="/all")
     public @ResponseBody Iterable<City> getName() {
-        // This returns a JSON or XML with the cities
         return CityRepository.findAll();
     }
 

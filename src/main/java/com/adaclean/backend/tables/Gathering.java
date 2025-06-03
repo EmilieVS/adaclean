@@ -11,22 +11,23 @@ public class Gathering {
     private Integer id;
     private String name;
     private Integer volunteer_id;
-    private String waste_type;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "waste_id", nullable = false)
+    private Waste waste;
+
     private Integer quantity;
     private String city_name;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 
-
-
     public Gathering() {
     }
 
-    public Gathering(Integer id, String name, Integer volunteer_id, String waste_type, Integer quantity, String city_name, LocalDateTime created_at, LocalDateTime updated_at){
+    public Gathering(Integer id, String name, Integer volunteer_id, Integer quantity, String city_name, LocalDateTime created_at, LocalDateTime updated_at){
         this.id =id;
         this.name = name;
         this.volunteer_id = volunteer_id;
-        this.waste_type = waste_type;
         this.quantity = quantity;
         this.city_name = city_name;
         this.created_at = created_at;
@@ -57,13 +58,9 @@ public class Gathering {
         this.volunteer_id = volunteer_id;
     }
 
-    public String getWaste_type() {
-        return waste_type;
-    }
+    public Waste getWaste(){ return waste;}
 
-    public void setWaste_type(String waste_type) {
-        this.waste_type = waste_type;
-    }
+    public void setWaste(Waste waste) { this.waste = waste;}
 
     public Integer getQuantity() {
         return quantity;
