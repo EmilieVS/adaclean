@@ -25,7 +25,7 @@ public class Gathering {
     }
 
     public Gathering(Integer id, String name, Integer volunteer_id, Integer quantity, String city_name, LocalDateTime created_at, LocalDateTime updated_at){
-        this.id =id;
+        this.id = id;
         this.name = name;
         this.volunteer_id = volunteer_id;
         this.quantity = quantity;

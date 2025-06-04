@@ -11,23 +11,31 @@ import org.springframework.web.bind.annotation.*;
 public class VolunteerController {
     @Autowired
 
-    private VolunteerRepository VolunteerRepository;
+    private VolunteerRepository volunteerRepository;
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Volunteer> getName() {
         // This returns a JSON or XML with the volunteer
-        return VolunteerRepository.findAll();
+        return volunteerRepository.findAll();
     }
 
-    @PostMapping(path="/all")
+    @PostMapping
     public Volunteer createVolunteer(@RequestBody Volunteer volunteer) {
 
-        return VolunteerRepository.save(volunteer);
+        return volunteerRepository.save(volunteer);
     }
 
     @DeleteMapping(path="/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable("id") Integer id ) {
-       VolunteerRepository.deleteById(id);
+       volunteerRepository.deleteById(id);
+    }
+
+    @PutMapping(path="/{id}")
+    public void updateVolunteer(@PathVariable("id") Integer id, @RequestBody Volunteer volunteer)
+                                             {
+        volunteer.setId(id);
+        volunteerRepository.save(volunteer);
+
     }
 }
 
