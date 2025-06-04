@@ -1,5 +1,6 @@
 package com.adaclean.backend.tables;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="waste")
@@ -7,16 +8,18 @@ public class Waste {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
-    private String waste_type;
+
+    @OneToMany(mappedBy = "waste", cascade = CascadeType.ALL)
+    private List<Gathering> gatherings;
 
     public Waste() {
     }
 
-    public Waste(Integer id, String name, String waste_type){
+    public Waste(Integer id, String name){
         this.id =id;
         this.name = name;
-        this.waste_type = waste_type;
     }
 
     public Integer getId() {
@@ -35,11 +38,11 @@ public class Waste {
         this.name = name;
     }
 
-    public String getWaste_type() {
-        return waste_type;
+    public List<Gathering> getGatherings() {
+        return gatherings;
     }
 
-    public void setWaste_type(String waste_type) {
-        this.waste_type = waste_type;
+    public void setGatherings(List<Gathering> gatherings) {
+        this.gatherings = gatherings;
     }
 }
